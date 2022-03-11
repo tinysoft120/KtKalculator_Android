@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_yellow_box"
+    android:baselineAligned="false">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2">
+
+        <TextView
+            android:id="@+id/tvTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/strFormatQuantityIn_"
+            android:textAppearance="@style/TextViewNormal"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="@dimen/line_size"
+            android:layout_height="match_parent"
+            android:background="@color/yellow_sep"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextViewNormal"
+            android:text="@string/strDescription" />
+
+        <View
+            android:layout_width="@dimen/line_size"
+            android:layout_height="match_parent"
+            android:background="@color/yellow_sep"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2">
+        <TextView
+            android:id="@+id/tvTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextViewNormal"
+            android:text="@string/strEstimatedValue"/>
+
+    </RelativeLayout>
+</LinearLayout>

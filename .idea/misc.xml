@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../Users/wovles/.gradle/caches/transforms-3/bf13ce6a52a0cce72a7e5003f057ce52/transformed/jetified-core-3.3.0/res/drawable/md_btn_selector_dark.xml" value="0.32051282051282054" />
+        <entry key="../../../../Users/wovles/.gradle/caches/transforms-3/bf13ce6a52a0cce72a7e5003f057ce52/transformed/jetified-core-3.3.0/res/drawable/md_transparent.xml" value="0.301" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/drawable/border_rect.xml" value="0.32051282051282054" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_item_background.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_item_background_mask.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_item_colors.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/btn_calculate_sel.xml" value="0.301" />
+        <entry key="app/src/main/res/drawable/btn_clear_sel.xml" value="0.301" />
+        <entry key="app/src/main/res/drawable/btn_edit_sel.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/btn_refresh_price_sel.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/color_tab_sel.xml" value="0.189" />
+        <entry key="app/src/main/res/drawable/ic_about.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/drawable/ic_calculator.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/ic_price.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/drawable/ic_result.xml" value="0.2638888888888889" />
+        <entry key="app/src/main/res/drawable/ic_tab_about.xml" value="0.31384615384615383" />
+        <entry key="app/src/main/res/drawable/popup_background.xml" value="0.32051282051282054" />
+        <entry key="app/src/main/res/drawable/tab2_sel.xml" value="0.1065" />
+        <entry key="app/src/main/res/drawable/tab_karat_calc_sel.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/tab_mid_states_sel.xml" value="0.1305" />
+        <entry key="app/src/main/res/drawable/tab_text_color_sel.xml" value="0.189" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35" />
+        <entry key="app/src/main/res/layout/activity_main_content.xml" value="0.3026041666666667" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_gold_price.xml" value="0.16231884057971013" />
+        <entry key="app/src/main/res/layout/fragment_kalculator.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/fragment_result.xml" value="0.3935018050541516" />
+        <entry key="app/src/main/res/layout/item_drop_calc.xml" value="0.296875" />
+        <entry key="app/src/main/res/layout/item_estimate_table_data.xml" value="0.38358974358974357" />
+        <entry key="app/src/main/res/layout/item_estimate_table_header.xml" value="0.521875" />
+        <entry key="app/src/main/res/layout/item_estimate_table_value.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/item_price_table_data.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_price_table_footer.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_price_table_header.xml" value="0.2212962962962963" />
+        <entry key="app/src/main/res/layout/item_result_table_data.xml" value="0.2212962962962963" />
+        <entry key="app/src/main/res/layout/item_result_table_header.xml" value="0.2212962962962963" />
+        <entry key="app/src/main/res/layout/item_result_table_sep.xml" value="0.2212962962962963" />
+        <entry key="app/src/main/res/layout/status_bar.xml" value="0.3026041666666667" />
+        <entry key="app/src/main/res/menu/bottom_navigation_main.xml" value="0.30625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.45" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

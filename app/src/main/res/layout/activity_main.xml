@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"/>
+
+    <com.midstatesrecycling.ktkalculator.views.BottomNavigationBarTinted
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorSurface"
+        android:elevation="10dp"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconTint="@drawable/bottom_navigation_item_colors"
+        app:itemTextAppearanceActive="@style/BottomSheetItemTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomSheetItemTextAppearance"
+        app:itemTextColor="@drawable/bottom_navigation_item_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_main"
+        tools:layout_height="56dp" />
+</RelativeLayout>

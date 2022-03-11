@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_kalculator"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_kalculator"
+        android:title="@string/tab_title_calculator" />
+    <!--android:icon="@drawable/ic_calculator"-->
+    <item
+        android:id="@+id/action_result"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_results"
+        android:title="@string/tab_title_result" />
+    <!--android:icon="@drawable/ic_result"-->
+    <item
+        android:id="@+id/action_gold_price"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_gold_price"
+        android:title="@string/tab_title_gold_price" />
+    <!--android:icon="@drawable/ic_price"-->
+    <item
+        android:id="@+id/action_about"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_about"
+        android:title="@string/tab_title_about" />
+    <!--android:icon="@drawable/ic_about"-->
+</menu>

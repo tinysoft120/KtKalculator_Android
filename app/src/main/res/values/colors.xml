@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_color">@color/md_white_1000</color>
+    <color name="window_color_light">@color/md_white_1000</color>
+    <color name="window_color_dark">@android:color/black</color>
+
+    <color name="blue_500">#0075E3</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_gray">#2B2B2B</color>
+    <color name="bg_gray_trans">#A02B2B2B</color>
+    <color name="text_red">#D45A1D</color>
+
+    <color name="dark_color">#202124</color>
+    <color name="black_color">#202124</color>
+    <color name="darkColorPrimary">#202124</color>
+    <color name="darkColorSurface">#202124</color>
+    <color name="text_gray">#9F9F9F</color>
+
+    <color name="md_black_1000">#000000</color>
+    <color name="md_white_1000">#FFFFFF</color>
+    <color name="gray_sep">#D0D0D0</color>
+    <color name="yellow_sep">#A88200</color>
+</resources>

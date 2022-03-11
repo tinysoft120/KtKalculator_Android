@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="status_bar_padding">0dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="button_padding_vertical">10dp</dimen>
+    <dimen name="logo_vertical_space">44dp</dimen>
+    <dimen name="main_padding">30dp</dimen>
+    <dimen name="calculated_gold_price_height">28dp</dimen>
+    <dimen name="today_gold_price_height">44dp</dimen>
+    <dimen name="line_size">1px</dimen>
+    <dimen name="small_padding">6dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">KtKalculator</string>
+    <string name="tab_title_calculator">Kalculator</string>
+    <string name="tab_title_result">Result</string>
+    <string name="tab_title_gold_price">Gold Price</string>
+    <string name="tab_title_about">About</string>
+    <string name="strMeasurement_">Measurement:</string>
+    <string name="strFormatQuantityIn_">Quantity in %s</string>
+    <string name="strDescription">Description</string>
+    <string name="strEstimatedValue">Estimated Value</string>
+    <string name="strDwt">D.W.T</string>
+    <string name="strGrams">Grams</string>
+    <string name="strTroyOz">Troy Oz</string>
+    <string name="strResult">Result</string>
+    <string name="strEstimatedRefiningTers">Estimated Refining Terms</string>
+    <string name="strResultTitle1">Final Estimated Value After All Refining Charges</string>
+    <string name="strResultTitle2">Total Weight</string>
+    <string name="strResultTitle3">Estimated Pure Gold Content</string>
+    <string name="strResultTitle4">Estimated Payable Pure Gold Content</string>
+    <string name="strResultTitle5">Estimated Purity</string>
+    <string name="strResultTitle6">Accountability</string>
+    <string name="strResultTitle7">Treatment Charge</string>
+    <string name="strGoldPriceToday">GOLD PRICE TODAY :</string>
+    <string name="strTodayGoldPrice">TODAY\'S GOLD PRICE</string>
+    <string name="strPerDwt">Per D.W.T</string>
+    <string name="strPerGram">Per Gram</string>
+    <string name="strKaratCalculator">KARAT CALCULATOR</string>
+    <string name="strMidStates">MID-STATES</string>
+</resources>

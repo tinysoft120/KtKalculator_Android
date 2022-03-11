@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo"
+        app:layout_constraintDimensionRatio="H,320:80"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvGoldPriceToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_padding"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="@string/strGoldPriceToday"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextViewBody1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo"/>
+
+    <ImageView
+        android:id="@+id/ivSearchHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/main_padding"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_goldprice_header"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSearchBody"
+        app:layout_constraintDimensionRatio="W,74:70"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSearchBody"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/ivSearchBody"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_goldprice_body"
+        app:layout_constraintTop_toTopOf="@+id/etGoldPriceToday"
+        app:layout_constraintBottom_toBottomOf="@+id/etGoldPriceToday"
+        app:layout_constraintEnd_toEndOf="@+id/etGoldPriceToday"
+        app:layout_constraintStart_toStartOf="@+id/etGoldPriceToday"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/ivSearchFooter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/main_padding"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_goldprice_footer"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSearchBody"
+        app:layout_constraintDimensionRatio="W,22:70"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSearchBody"
+        tools:ignore="ContentDescription" />
+    <EditText
+        android:id="@+id/etGoldPriceToday"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/today_gold_price_height"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:gravity="start|center_vertical"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textAppearance="@style/TextViewNormal"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/ivSearchFooter"
+        app:layout_constraintStart_toEndOf="@+id/ivSearchHeader"
+        app:layout_constraintTop_toBottomOf="@id/tvGoldPriceToday"
+        tools:ignore="LabelFor" />
+
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/padding_16"
+        android:layout_marginEnd="@dimen/main_padding"
+        android:background="@drawable/btn_edit_sel"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="W,5:2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSearchBody"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/btnRefresh"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/btn_refresh_price_sel"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintDimensionRatio="W,161:32"
+        app:layout_constraintEnd_toStartOf="@id/btnEdit"
+        app:layout_constraintTop_toTopOf="@+id/btnEdit"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/main_padding"
+        android:layout_marginVertical="@dimen/padding_16"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_line"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvTodayPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/main_padding"
+        android:layout_marginTop="@dimen/padding_16"
+        android:text="@string/strTodayGoldPrice"
+        android:textAppearance="@style/TextViewBody1"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tableview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/padding_16"
+        android:layout_marginHorizontal="@dimen/main_padding"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTodayPrice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
