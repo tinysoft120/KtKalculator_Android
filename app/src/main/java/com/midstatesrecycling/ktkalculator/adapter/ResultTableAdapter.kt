@@ -7,11 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.midstatesrecycling.ktkalculator.App
-import com.midstatesrecycling.ktkalculator.R
 import com.midstatesrecycling.ktkalculator.databinding.*
-import com.midstatesrecycling.ktkalculator.logic.Logic
-import com.midstatesrecycling.ktkalculator.logic.MeasureUnit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -126,7 +122,7 @@ sealed class ResultItem {
 
     data class DataItem(val index: Int,
                         val description: String,
-                        val result: String
+                        var result: String
     ) : ResultItem() {
         override val id = index
     }

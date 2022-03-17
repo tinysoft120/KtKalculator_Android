@@ -1,14 +1,9 @@
 package com.midstatesrecycling.ktkalculator
 
-import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.midstatesrecycling.ktkalculator.databinding.ActivityMainBinding
 import com.midstatesrecycling.ktkalculator.fragments.*
-import com.midstatesrecycling.ktkalculator.logic.Logic
-import com.midstatesrecycling.ktkalculator.util.ColorUtil
 import com.midstatesrecycling.ktkalculator.views.BottomNavigationBarTinted
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

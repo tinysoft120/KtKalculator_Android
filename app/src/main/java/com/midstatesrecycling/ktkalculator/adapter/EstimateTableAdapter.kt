@@ -13,7 +13,6 @@ import com.midstatesrecycling.ktkalculator.R
 import com.midstatesrecycling.ktkalculator.databinding.ItemEstimateTableDataBinding
 import com.midstatesrecycling.ktkalculator.databinding.ItemEstimateTableHeaderBinding
 import com.midstatesrecycling.ktkalculator.extensions.toDoubleValue
-import com.midstatesrecycling.ktkalculator.logic.Logic
 import com.midstatesrecycling.ktkalculator.logic.MeasureUnit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -40,11 +39,11 @@ class EstimateTableAdapter : //RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //}
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addHeaderAndSubmitList(list: List<EstimateItem.DataItem>?) {
+    fun addHeaderAndSubmitList(unit: MeasureUnit, list: List<EstimateItem.DataItem>?) {
         //mTableData.clear()
         val items = when (list) {
-            null -> listOf(EstimateItem.Header)
-            else -> listOf(EstimateItem.Header) + list
+            null -> listOf(EstimateItem.Header(unit))
+            else -> listOf(EstimateItem.Header(unit)) + list
         }
         //mTableData.addAll(items)
         submitList(items)
@@ -59,15 +58,23 @@ class EstimateTableAdapter : //RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.listener = listener
     }
 
-    fun updateListItem(index: Int, newValue: Double) {
+    fun updateHeader(unit: MeasureUnit) {
         adapterScope.launch {
             withContext(Dispatchers.Main) {
-                val item = (currentList[index] as? EstimateItem.DataItem)
+                val item = (currentList[0] as? EstimateItem.Header)
                 item?.let {
-                    it.value = newValue
-                    notifyItemChanged(index)
+                    it.unit = unit
+                    notifyItemChanged(0)
                 }
             }
+        }
+    }
+
+    fun updateListItem(index: Int, newValue: Double) {
+        val item = (currentList[index] as? EstimateItem.DataItem)
+        item?.let {
+            it.value = newValue
+            notifyItemChanged(index)
         }
     }
 
@@ -78,7 +85,8 @@ class EstimateTableAdapter : //RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 holder.bind(estimateItem, position)
             }
             is HeaderViewHolder -> {
-                holder.bind(Logic.currentMeasureUnit)
+                val headerItem = getItem(position) as EstimateItem.Header
+                holder.bind(headerItem.unit)
             }
         }
     }
@@ -197,7 +205,7 @@ sealed class EstimateItem {
         override val id = index
     }
 
-    object Header : EstimateItem() {
+    data class Header(var unit: MeasureUnit) : EstimateItem() {
         override val id = -1
     }
 

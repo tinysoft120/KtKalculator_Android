@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.midstatesrecycling.ktkalculator.model.CalcResult
 import com.midstatesrecycling.ktkalculator.network.ApiResult
 import com.midstatesrecycling.ktkalculator.network.NoConnectivityException
 import com.midstatesrecycling.ktkalculator.network.NoInternetException
@@ -18,10 +19,12 @@ class MainViewModel(
     private val _karatValue = MutableLiveData<Double>()
     private val _karatApiValue = MutableLiveData<ApiResult<Double>>()
     private val _netConnection = MutableLiveData<Boolean>()
+    private val _calcResult = MutableLiveData<CalcResult>()
 
     val karatValue: LiveData<Double> = _karatValue
     val karatApiValue: LiveData<ApiResult<Double>> = _karatApiValue
     val netConnection: LiveData<Boolean> = _netConnection
+    val calcResult: LiveData<CalcResult> = _calcResult
 
     init {
         loadNetworkContent()
@@ -64,6 +67,12 @@ class MainViewModel(
     fun updateKaratValue(goldRate: Double) {
         viewModelScope.launch(IO) {
             _karatValue.postValue(goldRate)
+        }
+    }
+
+    fun updateCalcResult(result: CalcResult) {
+        viewModelScope.launch(IO) {
+            _calcResult.postValue(result)
         }
     }
 }
