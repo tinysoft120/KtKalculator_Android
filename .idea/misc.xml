@@ -44,6 +44,8 @@
         <entry key="app/src/main/res/layout/item_result_table_sep.xml" value="0.2212962962962963" />
         <entry key="app/src/main/res/layout/status_bar.xml" value="0.3026041666666667" />
         <entry key="app/src/main/res/menu/bottom_navigation_main.xml" value="0.30625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>
