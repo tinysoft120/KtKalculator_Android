@@ -30,6 +30,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigationController() {
         fragments = listOf(CalculatorFragment(), ResultFragment(), GoldPriceFragment(), AboutFragment())
+        val ft = fm.beginTransaction()
+        for (i in fragments.indices.reversed()) {
+            ft.add(R.id.fragment_container, fragments[i], "$i")
+            if (i != 0) ft.hide(fragments[i])
+        }
+        ft.commitNow()
+        active = fragments[0]
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -45,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             // scroll to top
         }
 
-        showFragment(fragments[0], "0", 0)
+        //showFragment(fragments[0], "0", 0)
     }
 
     private fun showFragment(fragment: AbsMainFragment, tag: String, position: Int) {
@@ -54,10 +61,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             fm.beginTransaction().add(R.id.fragment_container, fragment, tag).commit()
         }
-//        fm.beginTransaction()
-//            .replace(R.id.fragment_container, fragment, tag)
-//            .commit()
-        //bottomNavigationView.menu.getItem(position).isChecked = true
+
         active = fragment
     }
 

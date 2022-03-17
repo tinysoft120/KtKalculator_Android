@@ -73,11 +73,14 @@ class CalculatorFragment : AbsMainFragment(R.layout.fragment_kalculator) {
         adapter.addHeaderAndSubmitList(curMeasureUnit, estimatesItems)
         adapter.setOnItemChangeListener(object : EstimateTableAdapter.OnItemChangeListener{
             override fun onChangedQuantity(item: EstimateItem.DataItem, position: Int) {
-                val newItem = Logic.calculateEstimateValue(item, curMeasureUnit, goldRate)
-                LogU.e(TAG, "updated - %s", item.toString())
-                adapter.updateListItem(position, newItem)
-
                 calcScope.launch {
+                    val newItem = Logic.calculateEstimateValue(item, curMeasureUnit, goldRate)
+
+                    LogU.e(TAG, "updated - %s", item.toString())
+                    withContext(Dispatchers.Main) {
+                        adapter.updateListItem(position, newItem)
+                    }
+
                     val goldItems = adapter.currentList.mapNotNull { it as? EstimateItem.DataItem }
                     val result = Logic.calculateResult(goldItems, curMeasureUnit, goldRate)
                     mainViewModel.updateCalcResult(result)
@@ -142,6 +145,18 @@ class CalculatorFragment : AbsMainFragment(R.layout.fragment_kalculator) {
     }
 
     private fun actionCalculate() {
+        var quantity = 0.0
+        adapter.currentList.map {
+            val item = it as? EstimateItem.DataItem
+            if (item != null) {
+                quantity += item.quantity
+            }
+        }
+        if (quantity == 0.0) {
+            showAlert("Karat Calculator", "There must be at least one quantity to calculate.")
+            return
+        }
+
         calcScope.launch {
             val goldItems = adapter.currentList.mapNotNull { it as? EstimateItem.DataItem }
             val result = Logic.calculateResult(goldItems, curMeasureUnit, goldRate)
