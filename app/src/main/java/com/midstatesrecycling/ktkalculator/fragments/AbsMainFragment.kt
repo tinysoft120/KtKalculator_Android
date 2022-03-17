@@ -1,14 +1,19 @@
 package com.midstatesrecycling.ktkalculator.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.navOptions
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.midstatesrecycling.ktkalculator.MainActivity
 import com.midstatesrecycling.ktkalculator.MainViewModel
 import com.midstatesrecycling.ktkalculator.R
+import com.midstatesrecycling.ktkalculator.extensions.colorButtons
+import com.midstatesrecycling.ktkalculator.util.LogU
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 open class AbsMainFragment(@LayoutRes layout: Int) : Fragment(layout) {
@@ -29,35 +34,60 @@ open class AbsMainFragment(@LayoutRes layout: Int) : Fragment(layout) {
     val mainActivity: MainActivity
         get() = activity as MainActivity
 
+    protected open fun hideKeyboard() {
+        try {
+            val parent = activity ?: return
+            val v = parent.currentFocus ?: return
+            val imm = parent.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            if (imm.isActive) {
+                v.clearFocus()
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    protected fun showAlert(title: String, message: String, callback: (()->Unit)? = null ) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(title)
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton("OK") { _, _ -> callback?.let { it() } }
+            .create()
+            .colorButtons()
+            .show()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(false)
-        Log.d(javaClass.simpleName, "onActivityCreated:")
+        LogU.d(javaClass.simpleName, "onActivityCreated:")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d(javaClass.simpleName, "onViewCreated:")
+        LogU.d(javaClass.simpleName, "onViewCreated:")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(javaClass.simpleName, "onResume:")
+        LogU.d(javaClass.simpleName, "onResume:")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(javaClass.simpleName, "onStop:")
+        LogU.d(javaClass.simpleName, "onStop:")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d(javaClass.simpleName, "onDestroyView:")
+        LogU.d(javaClass.simpleName, "onDestroyView:")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(javaClass.simpleName, "onDestroy:")
+        LogU.d(javaClass.simpleName, "onDestroy:")
     }
 }

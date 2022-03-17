@@ -3,12 +3,10 @@ package com.midstatesrecycling.ktkalculator.repository
 import android.content.Context
 import com.midstatesrecycling.ktkalculator.model.KaratValue
 import com.midstatesrecycling.ktkalculator.network.ApiResult
-import com.midstatesrecycling.ktkalculator.network.GoogleServer
 import com.midstatesrecycling.ktkalculator.network.RestApiService
 
 class RealRepository(
     private val context: Context,
-    private val connectApi: GoogleServer,
     private val apiService: RestApiService) {
 
 //    suspend fun connectToNetwork(): Boolean {
@@ -21,7 +19,7 @@ class RealRepository(
 //        }
 //    }
 
-    suspend fun karatValue(): ApiResult<Float> {
+    suspend fun karatValue(): ApiResult<Double> {
         return try {
             val response: KaratValue = apiService.getKarateValue()
             if (response.value != null) {

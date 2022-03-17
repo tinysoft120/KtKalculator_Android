@@ -5,26 +5,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.midstatesrecycling.ktkalculator.network.ApiResult
-import com.midstatesrecycling.ktkalculator.network.GoogleServer
+import com.midstatesrecycling.ktkalculator.network.NoConnectivityException
+import com.midstatesrecycling.ktkalculator.network.NoInternetException
 import com.midstatesrecycling.ktkalculator.repository.RealRepository
+import com.midstatesrecycling.ktkalculator.util.LogU
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainViewModel(
-    private val repository: RealRepository,
-    private val googleServer: GoogleServer
+    private val repository: RealRepository
 ) : ViewModel() {
-    private val _karatValue = MutableLiveData<Float>()
-    private val _karatApiValue = MutableLiveData<ApiResult<Float>>()
+    private val _karatValue = MutableLiveData<Double>()
+    private val _karatApiValue = MutableLiveData<ApiResult<Double>>()
     private val _netConnection = MutableLiveData<Boolean>()
 
-    val karatValue: LiveData<Float> = _karatValue
-    val karatApiValue: LiveData<ApiResult<Float>> = _karatApiValue
+    val karatValue: LiveData<Double> = _karatValue
+    val karatApiValue: LiveData<ApiResult<Double>> = _karatApiValue
     val netConnection: LiveData<Boolean> = _netConnection
 
     init {
@@ -32,23 +28,7 @@ class MainViewModel(
     }
 
     private fun loadNetworkContent() = viewModelScope.launch(IO) {
-        fetchNetworkState()
         fetchKaratApiValue()
-    }
-
-    fun fetchNetworkState() {
-        viewModelScope.launch(IO) {
-            googleServer.connectToGoogle().enqueue(object : Callback<String> {
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    val value = response.body()
-                    _netConnection.postValue(value != null)
-                }
-
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    _netConnection.postValue(false)
-                }
-            })
-        }
     }
 
     fun fetchKaratApiValue() {
@@ -56,15 +36,34 @@ class MainViewModel(
             _karatApiValue.postValue(ApiResult.Loading)
             val apiValue = repository.karatValue()
             _karatApiValue.postValue(apiValue)
-            withContext(Main) {
-                when (apiValue) {
-                    is ApiResult.Success -> {
-                        // TODO: check now Manual Mode
-                        _karatValue.postValue(apiValue.data!!)
-                    }
-                    else -> {}
+            //withContext(Main) {
+            when (apiValue) {
+                is ApiResult.Success -> {
+                    // TODO: check now Manual Mode
+                    _netConnection.postValue(true)
+                    _karatValue.postValue(apiValue.data!!)
                 }
+                is ApiResult.Error -> {
+                    LogU.e("net", apiValue.error.message ?: "")
+                    when (apiValue.error) {
+                        is NoInternetException -> {
+                            _netConnection.postValue(false)
+                        }
+                        is NoConnectivityException -> {
+                            _netConnection.postValue(false)
+                        }
+                        else -> { }
+                    }
+                }
+                ApiResult.Loading -> { }
             }
+            //}
+        }
+    }
+
+    fun updateKaratValue(goldRate: Double) {
+        viewModelScope.launch(IO) {
+            _karatValue.postValue(goldRate)
         }
     }
 }

@@ -33,7 +33,7 @@
     </style>
 
     <style name="MaterialAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="android:dialogCornerRadius" tools:targetApi="p">12dp</item>
+        <item name="android:dialogCornerRadius" tools:targetApi="p">8dp</item>
         <item name="materialAlertDialogBodyTextStyle">
             @style/AppTextAppearance.MaterialAlertDialog.Body
         </item>

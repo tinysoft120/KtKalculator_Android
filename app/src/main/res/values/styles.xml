@@ -21,6 +21,7 @@
 
     <style name="AppTextAppearance.MaterialAlertDialog.Body" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
         <item name="android:textAppearance">@style/TextViewBody1</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:paddingTop">16dp</item>
     </style>
 

@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.midstatesrecycling.ktkalculator.databinding.ActivityMainBinding
-import com.midstatesrecycling.ktkalculator.fragments.AboutFragment
-import com.midstatesrecycling.ktkalculator.fragments.CalculatorFragment
-import com.midstatesrecycling.ktkalculator.fragments.GoldPriceFragment
-import com.midstatesrecycling.ktkalculator.fragments.ResultFragment
+import com.midstatesrecycling.ktkalculator.fragments.*
+import com.midstatesrecycling.ktkalculator.logic.Logic
 import com.midstatesrecycling.ktkalculator.util.ColorUtil
 import com.midstatesrecycling.ktkalculator.views.BottomNavigationBarTinted
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,8 +16,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
     val mainViewModel by viewModel<MainViewModel>()
     private lateinit var binding: ActivityMainBinding
-    private lateinit var fragments: List<Fragment>
-    private var active: Fragment? = null
+    private lateinit var fragments: List<AbsMainFragment>
+    private var active: AbsMainFragment? = null
     private val fm get() = supportFragmentManager
     private val bottomNavigationView: BottomNavigationBarTinted get() = binding.bottomNavigationView
 
@@ -30,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupNavigationController()
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     private fun setupNavigationController() {
@@ -52,11 +53,11 @@ class MainActivity : AppCompatActivity() {
         showFragment(fragments[0], "0", 0)
     }
 
-    private fun showFragment(fragment: Fragment, tag: String, position: Int) {
+    private fun showFragment(fragment: AbsMainFragment, tag: String, position: Int) {
         if (fragment.isAdded) {
-            fm.beginTransaction().hide(active!!).show(fragment).commit();
+            fm.beginTransaction().hide(active!!).show(fragment).commit()
         } else {
-            fm.beginTransaction().add(R.id.fragment_container, fragment, tag).commit();
+            fm.beginTransaction().add(R.id.fragment_container, fragment, tag).commit()
         }
 //        fm.beginTransaction()
 //            .replace(R.id.fragment_container, fragment, tag)
@@ -65,25 +66,15 @@ class MainActivity : AppCompatActivity() {
         active = fragment
     }
 
+    public fun activePage(position: Int) {
+        val menuIds = listOf(
+            R.id.action_kalculator,
+            R.id.action_result,
+            R.id.action_gold_price,
+            R.id.action_about)
 
-    private fun setLightStatusbar(enabled: Boolean) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val decorView = this.window.decorView
-            val systemUiVisibility = decorView.systemUiVisibility
-            if (enabled) {
-                decorView.systemUiVisibility =
-                    systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            } else {
-                decorView.systemUiVisibility =
-                    systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-            }
+        if (position in 0 until menuIds.count() ) {
+            bottomNavigationView.selectedItemId = menuIds[position]
         }
-    }
-
-    fun setLightStatusbarAuto(bgColor: Int) {
-        setLightStatusbar(ColorUtil.isColorLight(bgColor))
-    }
-    fun setBottomBarVisibility(visible: Boolean) {
-        binding.bottomNavigationView.isVisible = visible
     }
 }

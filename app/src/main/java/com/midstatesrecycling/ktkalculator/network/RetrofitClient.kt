@@ -32,6 +32,10 @@ fun logInterceptor(): Interceptor {
     return loggingInterceptor
 }
 
+fun connectionInterceptor(context: Context): Interceptor {
+    return NetworkConnectionInterceptor(context)
+}
+
 fun headerInterceptor(context: Context): Interceptor {
     return Interceptor {
         val original = it.request()
@@ -47,6 +51,7 @@ fun headerInterceptor(context: Context): Interceptor {
 fun provideOkHttp(context: Context, cache: Cache): OkHttpClient {
     return OkHttpClient.Builder()
         .addNetworkInterceptor(logInterceptor())
+        .addInterceptor(connectionInterceptor(context))
         //.addInterceptor(headerInterceptor(context))
         .connectTimeout(5, TimeUnit.SECONDS)
         .readTimeout(10, TimeUnit.SECONDS)
@@ -54,20 +59,12 @@ fun provideOkHttp(context: Context, cache: Cache): OkHttpClient {
         .build()
 }
 
-fun provideApiRetrofit(client: OkHttpClient): GoogleServer {
-    val retrofit = Retrofit.Builder()
-        .baseUrl("http://www.google.com/")
-        .callFactory { request -> client.newCall(request) }
-        .build()
-    return retrofit.create(GoogleServer::class.java)
-}
-
 fun provideRestApi(client: OkHttpClient): RestApiService {
     val gson = GsonBuilder()
         .setLenient()
         .create()
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://www.midstatesrecycling.com/")
+        .baseUrl("https://www.midstatesrecycling.com")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .callFactory { request -> client.newCall(request) }
         .build()

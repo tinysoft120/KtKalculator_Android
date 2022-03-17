@@ -23,15 +23,15 @@ class PriceTableAdapter:
     private val adapterScope = CoroutineScope(Dispatchers.Default)
 
     fun addHeaderAndSubmitList(list: List<PriceItem.DataItem>?) {
-        adapterScope.launch {
-            val items = when (list) {
-                null -> listOf(PriceItem.Header, PriceItem.Footer)
-                else -> listOf(PriceItem.Header) + list + listOf(PriceItem.Footer)
-            }
-            withContext(Dispatchers.Main) {
-                submitList(items)
-            }
+        val items = when (list) {
+            null -> listOf(PriceItem.Header, PriceItem.Footer)
+            else -> listOf(PriceItem.Header) + list + listOf(PriceItem.Footer)
         }
+        submitList(items)
+        //adapterScope.launch {
+        //    withContext(Dispatchers.Main) {
+        //    }
+        //}
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -116,7 +116,7 @@ sealed class PriceItem {
 
     data class DataItem(val index: Int,
                             var dwtUnit: String,
-                            val dwtValue: String,
+                            var dwtValue: String,
                             var gramUnit: String,
                             var gramValue: String
                             ) : PriceItem() {

@@ -9,4 +9,4 @@ import kotlinx.parcelize.Parcelize
 @Keep
 data class KaratValue(
     @SerializedName("value")
-    val value: Float?) : Parcelable
+    val value: Double?) : Parcelable

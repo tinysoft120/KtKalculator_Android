@@ -3,7 +3,7 @@ package com.midstatesrecycling.ktkalculator.network
 import com.midstatesrecycling.ktkalculator.model.KaratValue
 import retrofit2.http.GET
 
-private const val URL_KARAT_VALUE  = "service/getkaratvalue.php"
+private const val URL_KARAT_VALUE  = "/service/getkaratvalue.php"
 
 interface RestApiService {
 

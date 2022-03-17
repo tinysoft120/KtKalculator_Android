@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:clickable="true"
     android:background="@drawable/bg">
 
     <ImageView
@@ -25,10 +27,10 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_search_header"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
+        app:layout_constraintBottom_toBottomOf="@id/btnGoldPrice"
         app:layout_constraintDimensionRatio="W,52:44"
-        app:layout_constraintStart_toStartOf="@+id/btnSearch"
-        app:layout_constraintTop_toTopOf="@+id/btnSearch"
+        app:layout_constraintStart_toStartOf="@id/btnGoldPrice"
+        app:layout_constraintTop_toTopOf="@id/btnGoldPrice"
         tools:ignore="ContentDescription" />
     <ImageView
         android:id="@+id/ivSearchBody"
@@ -36,10 +38,10 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_search_body"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
-        app:layout_constraintEnd_toStartOf="@+id/ivSearchFooter"
-        app:layout_constraintStart_toEndOf="@+id/ivSearchHeader"
-        app:layout_constraintTop_toTopOf="@+id/btnSearch"
+        app:layout_constraintBottom_toBottomOf="@id/btnGoldPrice"
+        app:layout_constraintEnd_toStartOf="@id/ivSearchFooter"
+        app:layout_constraintStart_toEndOf="@id/ivSearchHeader"
+        app:layout_constraintTop_toTopOf="@id/btnGoldPrice"
         tools:ignore="ContentDescription" />
     <ImageView
         android:id="@+id/ivSearchFooter"
@@ -47,13 +49,13 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_search_footer"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
+        app:layout_constraintBottom_toBottomOf="@id/btnGoldPrice"
         app:layout_constraintDimensionRatio="W,6:44"
-        app:layout_constraintEnd_toEndOf="@+id/btnSearch"
-        app:layout_constraintTop_toTopOf="@+id/btnSearch"
+        app:layout_constraintEnd_toEndOf="@id/btnGoldPrice"
+        app:layout_constraintTop_toTopOf="@id/btnGoldPrice"
         tools:ignore="ContentDescription" />
     <ImageButton
-        android:id="@+id/btnSearch"
+        android:id="@+id/btnGoldPrice"
         android:layout_width="0dp"
         android:layout_height="@dimen/calculated_gold_price_height"
         android:layout_marginStart="@dimen/main_padding"
@@ -73,10 +75,10 @@
         android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:textAppearance="@style/TextViewBody1"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSearchBody"
-        app:layout_constraintEnd_toEndOf="@+id/ivSearchBody"
-        app:layout_constraintStart_toStartOf="@+id/ivSearchBody"
-        app:layout_constraintTop_toTopOf="@+id/ivSearchBody"
+        app:layout_constraintBottom_toBottomOf="@id/ivSearchBody"
+        app:layout_constraintEnd_toEndOf="@id/ivSearchBody"
+        app:layout_constraintStart_toStartOf="@id/ivSearchBody"
+        app:layout_constraintTop_toTopOf="@id/ivSearchBody"
         tools:text="1234.00"/>
 
     <ImageView
@@ -85,10 +87,10 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_drop_header"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMeasure"
+        app:layout_constraintBottom_toBottomOf="@id/btnMeasure"
         app:layout_constraintDimensionRatio="W,6:44"
-        app:layout_constraintStart_toStartOf="@+id/btnMeasure"
-        app:layout_constraintTop_toTopOf="@+id/btnMeasure"
+        app:layout_constraintStart_toStartOf="@id/btnMeasure"
+        app:layout_constraintTop_toTopOf="@id/btnMeasure"
         tools:ignore="ContentDescription" />
     <ImageView
         android:id="@+id/ivMeasureBody"
@@ -96,10 +98,10 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_drop_body"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMeasure"
-        app:layout_constraintEnd_toStartOf="@+id/ivMeasureFooter"
-        app:layout_constraintStart_toEndOf="@+id/ivMeasureHeader"
-        app:layout_constraintTop_toTopOf="@+id/btnMeasure"
+        app:layout_constraintBottom_toBottomOf="@id/btnMeasure"
+        app:layout_constraintEnd_toStartOf="@id/ivMeasureFooter"
+        app:layout_constraintStart_toEndOf="@id/ivMeasureHeader"
+        app:layout_constraintTop_toTopOf="@id/btnMeasure"
         tools:ignore="ContentDescription" />
     <ImageView
         android:id="@+id/ivMeasureFooter"
@@ -107,10 +109,10 @@
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/img_drop_footer"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMeasure"
+        app:layout_constraintBottom_toBottomOf="@id/btnMeasure"
         app:layout_constraintDimensionRatio="W,52:44"
-        app:layout_constraintEnd_toEndOf="@+id/btnMeasure"
-        app:layout_constraintTop_toTopOf="@+id/btnMeasure"
+        app:layout_constraintEnd_toEndOf="@id/btnMeasure"
+        app:layout_constraintTop_toTopOf="@id/btnMeasure"
         tools:ignore="ContentDescription" />
     <ImageButton
         android:id="@+id/btnMeasure"
@@ -133,10 +135,10 @@
         android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:textAppearance="@style/TextViewBody1"
-        app:layout_constraintEnd_toEndOf="@+id/ivMeasureBody"
-        app:layout_constraintStart_toStartOf="@+id/ivMeasureBody"
-        app:layout_constraintBottom_toBottomOf="@+id/ivMeasureBody"
-        app:layout_constraintTop_toTopOf="@+id/ivMeasureBody"
+        app:layout_constraintEnd_toEndOf="@id/ivMeasureBody"
+        app:layout_constraintStart_toStartOf="@id/ivMeasureBody"
+        app:layout_constraintBottom_toBottomOf="@id/ivMeasureBody"
+        app:layout_constraintTop_toTopOf="@id/ivMeasureBody"
         tools:text="D.W.T"/>
 
     <TextView
@@ -151,9 +153,9 @@
         android:textColor="@color/white"
         android:text="@string/strMeasurement_"
         android:textAppearance="@style/TextViewNormal"
-        app:layout_constraintBottom_toBottomOf="@+id/ivMeasureBody"
-        app:layout_constraintEnd_toStartOf="@+id/ivMeasureHeader"
-        app:layout_constraintTop_toTopOf="@+id/ivMeasureBody"
+        app:layout_constraintBottom_toBottomOf="@id/ivMeasureBody"
+        app:layout_constraintEnd_toStartOf="@id/ivMeasureHeader"
+        app:layout_constraintTop_toTopOf="@id/ivMeasureBody"
         tools:text="Measurement:" />
 
     <ImageButton
@@ -192,8 +194,8 @@
         android:layout_marginVertical="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMeasurement"
-        app:layout_constraintBottom_toTopOf="@+id/btnClear" />
+        app:layout_constraintTop_toBottomOf="@id/tvMeasurement"
+        app:layout_constraintBottom_toTopOf="@id/btnClear" />
 
     <View
         android:id="@+id/vOverlay"
@@ -210,8 +212,8 @@
         android:orientation="vertical"
         android:background="@color/white"
         android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@+id/ivMeasureFooter"
-        app:layout_constraintEnd_toEndOf="@+id/ivMeasureFooter">
+        app:layout_constraintTop_toBottomOf="@id/ivMeasureFooter"
+        app:layout_constraintEnd_toEndOf="@id/ivMeasureFooter">
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
